@@ -26,7 +26,7 @@ export default class GenericNavigateTo extends NavigationMixin(LightningElement)
         try{
             if(data && data.fields){
                 this.redirectValue = data.fields[this.relatedRecord.split('.')[1]].value;
-                this.objectName = data.fields[this.relatedRecord.split('.')[0]];
+                this.objectName = data['apiName'];
 
                 this.forceDisableBtn = (this.redirectValue && RegExp(/^[a-zA-Z0-9]+$/).test(this.redirectValue) && this.redirectValue.length >= 15 && this.redirectValue.length <= 18) ? false : true;
             }else{
