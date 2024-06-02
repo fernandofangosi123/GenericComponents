@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Generic Navigate To</masterLabel>
+    <description>This component creates a shortcut to records, tabs or any custom links</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage, lightning__AppPage, lightning__HomePage, lightning__FlowScreen">
+            <property label="Title" name="title" type="String" description="Title to show on redirect card" required="false"/>
+            <property label="Icon" name="icon" type="String" description="Icon to show on redirect card" required="false"/>
+            <property label="Related Record" name="relatedRecord" type="String" description="Redirect to related Record, please inform the API name of the field that contains the related record ID. It should be something like this Account.OwnerId" required="false"/>
+            <property label="Custom URL" name="customURL" type="String" description="Redirect to custom URL, please inform the URL. It should start with /lightning/" required="false"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
