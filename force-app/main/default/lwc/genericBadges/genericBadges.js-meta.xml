@@ -9,7 +9,8 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
-            <property label="Field Name" name="fieldName" type="String" description="Enter the API Name of the multi-picklist field for this record" required="false"/>
+            <property label="Field Name" name="fieldName" type="String" description="Enter the API Name of the multi-picklist field for this record. It shoul start with OBJECT.FIELDAPINAME" required="false"/>
+            <property label="Icon Name" name="iconName" type="String" description="Enter any utility icon to be shown on your badges. It should start with utility:somenthing" required="false"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
