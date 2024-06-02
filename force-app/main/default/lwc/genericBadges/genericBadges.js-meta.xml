@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Generic Badges</masterLabel>
+    <description>This component creates badges to be shown on record pages based on multi-picklist fields</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property label="Field Name" name="fieldName" type="String" description="Enter the API Name of the multi-picklist field for this record" required="false"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
