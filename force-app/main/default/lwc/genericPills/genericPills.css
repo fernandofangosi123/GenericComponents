@@ -1,0 +1,13 @@
+.pill-radius{
+    border-radius: 0.7rem;
+    margin: 0.25rem;
+    padding-left: 0.5rem;
+}
+
+.pill-selected{
+    background-color: #747474;
+}
+
+.inverse-label{
+    color: #FFFFFF;
+}

@@ -1,0 +1,27 @@
+<template>
+    <lightning-card icon-name={iconName} title={cardTitle}>
+        <p class="slds-p-around_small">
+            <template for:each={selectedPills} for:item="pill">
+                <span class="slds-pill pill-radius pill-selected" key={pill}>
+                    <span class="slds-pill__label inverse-label">{pill.label}</span>
+                    <lightning-button-icon data-name={pill.value} onclick={handlerRemItem} icon-name="utility:close" class="slds-pill__remove" variant="bare-inverse" alternative-text="remove" title="remove"></lightning-button-icon>
+                </span>
+            </template>
+        </p>
+        <hr>
+        <p class="slds-p-around_small">
+            <template for:each={unselectedPills} for:item="pill">
+                <span class="slds-pill pill-radius" key={pill}>
+                    <span class="slds-pill__label">{pill.label}</span>
+                    <lightning-button-icon data-name={pill.value} onclick={handlerAddItem} icon-name="utility:add" class="slds-pill__remove" variant="bare" alternative-text="add" title="add"></lightning-button-icon>
+                </span>
+            </template>
+        </p>
+        <template lwc:if={showFooter}>
+            <p slot="footer">
+                <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand-outline" label="Cancel" title="Cancel" onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+            </p>
+        </template>
+    </lightning-card>
+</template>
