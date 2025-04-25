@@ -26,7 +26,7 @@ export default class GenericPills extends LightningElement {
         return this.objName + '.' + this.fieldName;
     }
 
-    // WIRES
+    // WIRE METHODS
     @wire(getRecord, { recordId: '$recordId', fields: '$getFieldName' })
     getRecordInfo(response){
         let data = response && response.data;
