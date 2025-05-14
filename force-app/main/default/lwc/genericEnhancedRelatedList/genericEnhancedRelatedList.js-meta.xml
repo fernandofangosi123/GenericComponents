@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Generic Enhanced Related List</masterLabel>
+    <description>This component creates a related list enabling to show listed records that have advanced relationship models</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__UrlAddressable</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage, lightning__AppPage, lightning__HomePage">
+            <property label="Icon Name" name="iconName" type="String" description="Icon to show on the Card. Use utility icons." required="false" default="standard:case"/>
+            <property label="Card Title" name="cardTitle" type="String" description="Title to be shown on the Card" required="false" default="Card Title here..."/>
+            <property label="Query Data" name="queryData" type="String" description="Query to retrieve Data" required="false" default="SELECT Id, Status, CaseNumber, Type FROM Case WHERE AccountId = {0} AND Account.AccountNumber = {1}"/>
+            <property label="Field Mappings" name="fieldMappings" type="String" description="Comma separated list of Field Mappings to change later on Apex to do Query" required="false" default="Account.Id,Account.AccountNumber"/>
+            <property label="Table Columns" name="tableColumns" type="String" description="Columns to be shown on the datatable" required="false" default='[    {       "label":"Case Number",       "fieldName":"URL",       "type":"url",       "typeAttributes":{          "label":{             "fieldName":"CaseNumber"          },          "target":"_blank"       },       "wrapText":true    },    {       "label":"Type",       "fieldName":"Type",       "type":"text",       "wrapText":true    },    {       "label":"Status",       "fieldName":"Status",       "type":"text",       "wrapText":true    } ]'/>
+            <property label="Lines to Show" name="linesToShow" type="Integer" description="Quantity of lines to show when the Related List is collapsed" required="false" default="3"/>
+            <property label="Preview Items" name="flatPreviewItems" type="Boolean" description="To show list of reduced items on startup" required="false" default="true"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
