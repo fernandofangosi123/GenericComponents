@@ -1,0 +1,36 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name={iconName} alternative-text="" title=""></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-card__header-title">
+                  <span>{cardTitle}</span>
+              </h2>
+            </div>
+            <!-- Search box -->
+            <div lwc:if={getShowSearch} class="slds-no-flex">
+              <lightning-input name="searchInput" label="Search" type="search" onchange={handleSearch}></lightning-input>
+            </div>
+          </header>
+        </div>
+        <div class="slds-card__body">
+            <c-generic-datatable
+                data={filteredData}
+                columns={getTableColumns}
+                show-row-number-column="true"
+                default-sort-direction="desc"
+                hide-checkbox-column="true"
+                onsort={handleSortData}
+                key-field="">
+            </c-generic-datatable>
+        </div>
+        <div lwc:if={getShowViewAll}>
+          <footer class="slds-card__footer">
+            <lightning-button variant="base" label="View All" title="View All" onclick={handleBtnViewAll} class="slds-m-left_x-small"></lightning-button>
+          </footer>
+        </div>
+      </article>
+</template>
