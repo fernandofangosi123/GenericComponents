@@ -6,6 +6,7 @@ export default class GenericEnhancedRelatedListFullView extends LightningElement
     @api iconName;
     @api cardTitle;
     @api queryData;
+    @api fieldMappings;
     @api manualData;
     @api isManual;
     @api tableColumns;
@@ -15,6 +16,7 @@ export default class GenericEnhancedRelatedListFullView extends LightningElement
     decodeUriIconName;
     decodeUriCardTitle;
     decodeUriQueryData;
+    decodeUriFieldMappings
     decodeUriManualData;
     decodeUriIsManual;
     decodeUriTableColumns;
@@ -26,6 +28,7 @@ export default class GenericEnhancedRelatedListFullView extends LightningElement
         this.decodeUriIconName = this.decodeURIAtob(this.iconName);
         this.decodeUriCardTitle = this.decodeURIAtob(this.cardTitle);
         this.decodeUriQueryData = this.decodeURIAtob(this.queryData);
+        this.decodeUriFieldMappings = this.decodeURIAtob(this.fieldMappings);
         this.decodeUriManualData = this.decodeURIAtob(this.manualData);
         this.decodeUriIsManual = this.decodeURIAtob(this.isManual);
         this.decodeUriTableColumns = this.decodeURIAtob(this.tableColumns);
