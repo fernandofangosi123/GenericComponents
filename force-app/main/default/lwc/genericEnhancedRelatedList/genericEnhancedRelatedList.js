@@ -42,12 +42,16 @@ export default class GenericEnhancedRelatedList extends NavigationMixin(Lightnin
         return this.flatPreviewItems;
     }
 
+    get getDisableViewAll(){
+        return this.flatPreviewItems && this.tableData && this.tableData.length > 0 ? false : true;
+    }
+
     get getShowSearch(){
         return !this.getShowViewAll;
     }
 
     get getFieldMappings(){
-        return this.fieldMappings.split(',');
+        return this.fieldMappings ? this.fieldMappings.split(',') : [];
     }
     
     // WIRE METHODS
@@ -62,9 +66,6 @@ export default class GenericEnhancedRelatedList extends NavigationMixin(Lightnin
             this.sobjectRecordFields = data;
 
             if(!this.isManual && this.sobjectRecordFields){
-                console.log(data);
-                console.log(data.fields);
-
                 this.getTableDataFn();
             }
         }
@@ -188,6 +189,7 @@ export default class GenericEnhancedRelatedList extends NavigationMixin(Lightnin
         let queryData = this.queryData ? this.encodeURIBtoa(this.queryData) : this.encodeURIBtoa(null);
         let manualData = this.manualData ? this.encodeURIBtoa(this.manualData) : this.encodeURIBtoa(null);
         let isManual = this.isManual ? this.encodeURIBtoa(this.isManual) : this.encodeURIBtoa(null);
+        let fieldMappings = this.fieldMappings ? this.encodeURIBtoa(this.fieldMappings) : this.encodeURIBtoa(null);
 
         // Component Definition to Navigate through Workspace API
         var compDefinition = {
@@ -199,7 +201,8 @@ export default class GenericEnhancedRelatedList extends NavigationMixin(Lightnin
                 tableColumns: tableColumns,
                 queryData: queryData,
                 manualData: manualData,
-                isManual: isManual
+                isManual: isManual,
+                fieldMappings : fieldMappings
             }
         };
 
